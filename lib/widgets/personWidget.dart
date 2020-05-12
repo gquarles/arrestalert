@@ -10,7 +10,25 @@ class PersonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Mugshot(mugshot: person.mugshot,),
+      child: Card(
+        elevation: 7,
+        child: Container(
+          padding: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Mugshot(
+                  mugshot: person.mugshot,
+                ),
+              ),
+              Container(
+                child: Text(person.name),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

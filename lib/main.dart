@@ -1,8 +1,7 @@
-import 'package:arrestalert/api/recentArrests.dart';
-import 'package:arrestalert/widgets/personWidget.dart';
+import 'package:arrestalert/personPage.dart';
 import 'package:flutter/material.dart';
-import 'api/jails.dart';
-import 'models/person.dart';
+
+import 'models/jail.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,20 +31,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            PersonWidget(person: Person('', 'Arrest Inmate', 'https://imgstore.jailbase.com/small/arrested/ky-fcrj/2020-05-11/billy-joe-purvis-2010038178.pic1.jpg', '', 2, List<String>()),),
-          ],
-        ),
+      body: Center(child: Text('Hello, World')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PersonPage(
+                jail: Jail('ky-fcrj', 'KY', '', '', true),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

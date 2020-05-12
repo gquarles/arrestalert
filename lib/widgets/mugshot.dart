@@ -19,9 +19,9 @@ class _MugshotState extends State<Mugshot> {
   }
   @override
   Widget build(BuildContext context) {
-    
     return Container(
        child: CachedNetworkImage(
+         fit: BoxFit.contain,
         imageUrl: widget.mugshot,
         placeholder: (context, url) => CircularProgressIndicator(),
         errorWidget: (context, url, error) => Icon(Icons.error),
