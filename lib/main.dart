@@ -1,3 +1,4 @@
+import 'package:arrestalert/api/recentArrests.dart';
 import 'package:flutter/material.dart';
 import 'api/jails.dart';
 
@@ -30,10 +31,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  Jails jails = new Jails();
 
   void _incrementCounter() {
-    jails.fetch();
+    RecentArrests ra = new RecentArrests();
+    ra.fetch('ky-fcrj');
     setState(() {
       _counter++;
     });
